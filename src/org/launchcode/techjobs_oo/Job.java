@@ -31,6 +31,42 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+
+    // Use TDD to create custom toString method
+
+    @Override
+    public String toString() {
+
+        if (this.name == null && this.employer == null && this.location == null && this.positionType == null && this.coreCompetency == null) {
+            return "OOPS! This job does not seem to exist.";
+        }
+
+        if (this.getName().equals("")) {
+            this.setName("Data not Available");
+        }
+        if (this.getEmployer().getValue().equals("")) {
+            this.setEmployer(new Employer("Data not Available"));
+        }
+        if (this.getLocation().getValue().equals("")) {
+            this.setLocation(new Location("Data not Available"));
+        }
+        if (this.getPositionType().getValue().equals("")) {
+            this.setPositionType(new PositionType("Data not Available"));
+        }
+        if (this.getCoreCompetency().getValue().equals("")) {
+            this.setCoreCompetency(new CoreCompetency("Data not Available"));
+        }
+
+        return "\n" +
+                "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType  + "\n" +
+                "Core Competency: " + coreCompetency + "\n";
+
+    }
+
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 

@@ -21,9 +21,7 @@ public class PositionType {
 
     @Override
     public String toString() {
-        return "PositionType{" +
-                "value='" + value + '\'' +
-                '}';
+        return value;
     }
 
 
