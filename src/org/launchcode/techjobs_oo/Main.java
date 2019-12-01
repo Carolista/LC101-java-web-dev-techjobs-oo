@@ -4,9 +4,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Job job3 = new Job("Ice cream taster", new Employer(""), new Location("Home"), new PositionType("UX"), new CoreCompetency("Taste"));
+        Job job5 = new Job("Ice cream taster", new Employer(""), new Location("Home"), new PositionType("UX"), new CoreCompetency("Taste"));
 
-        System.out.print(job3);
+        System.out.print(job5);
     }
 
 //    public static void main(String[] args) {

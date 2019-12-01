@@ -12,7 +12,7 @@ import static org.junit.Assert.assertFalse;
 
 public class JobTest {
 
-    Job job1, job2, job3, job4, job5;
+    Job job0, job1, job2, job3, job4, job5;
     Employer testEmployer;
     Location testLocation;
     PositionType testPositionType;
@@ -21,6 +21,7 @@ public class JobTest {
     @Before
     public void createTestJobs() {
 
+        job0 = new Job("First job", new Employer("Bob's House of Pain"), new Location("Hades"), new PositionType("Peon"), new CoreCompetency("High tolerance for pain"));
         job1 = new Job();
         job2 = new Job();
         testEmployer = new Employer("ACME");
@@ -46,7 +47,6 @@ public class JobTest {
         assertTrue(job3.getPositionType() instanceof PositionType);
         assertTrue(job3.getCoreCompetency() instanceof CoreCompetency);
 
-        assertEquals(3, job3.getId());
         assertEquals("Product tester", job3.getName());
         assertEquals(testEmployer, job3.getEmployer());
         assertEquals(testLocation, job3.getLocation());
@@ -71,13 +71,15 @@ public class JobTest {
 
     @Test
     public void toStringPutsAllFieldsOnNewLinesWithValues() {
-        String s = job3.toString();
-        assertTrue(s.contains("ID: 3\n"));
-        assertTrue(s.contains("Name: Product tester\n"));
-        assertTrue(s.contains("Employer: ACME\n"));
-        assertTrue(s.contains("Location: Desert\n"));
-        assertTrue(s.contains("Position Type: Quality control\n"));
-        assertTrue(s.contains("Core Competency: Persistent\n"));
+        String s = job0.toString();
+        int testID = job0.getId();
+        String subID = "ID: " + testID + "\n";
+        assertTrue(s.contains(subID));
+        assertTrue(s.contains("Name: First job\n"));
+        assertTrue(s.contains("Employer: Bob's House of Pain\n"));
+        assertTrue(s.contains("Location: Hades\n"));
+        assertTrue(s.contains("Position Type: Peon\n"));
+        assertTrue(s.contains("Core Competency: High tolerance for pain\n"));
     }
 
     @Test
